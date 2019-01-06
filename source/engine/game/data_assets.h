@@ -12,13 +12,6 @@ typedef struct
 
 enum
 {
-    MODEL_PLANE,
-    MODEL_TEST,
-    MODEL_WRENCH,
-};
-
-enum
-{
     TEX_ASTRONAUT_ALBEDO,
     TEX_ASTRONAUT_GLOSS,
     TEX_ASTRONAUT_NORMAL,
@@ -55,12 +48,9 @@ enum
     SCRIPT_LEVEL,
 };
 
-enum { Asset_staticModelCount=3 };
-
-static const AssetEntry Asset_staticModelManifest[] = {
-    MODEL_PLANE, "MODEL_PLANE", "test.obj",
-    MODEL_TEST, "MODEL_TEST", "test.mesh",
-    MODEL_WRENCH, "MODEL_WRENCH", "props/wrench.mesh",
+enum
+{
+    MODEL_WRENCH,
 };
 
 enum { Asset_textureCount=9 };
@@ -104,6 +94,12 @@ enum { Asset_scriptCount=2 };
 static const AssetEntry Asset_scriptManifest[] = {
     SCRIPT_GLOBAL, "SCRIPT_GLOBAL", NULL,
     SCRIPT_LEVEL, "SCRIPT_LEVEL", NULL,
+};
+
+enum { Asset_staticModelCount=1 };
+
+static const AssetEntry Asset_staticModelManifest[] = {
+    MODEL_WRENCH, "MODEL_WRENCH", "props/wrench.mesh",
 };
 
 #endif

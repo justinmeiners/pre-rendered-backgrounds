@@ -1,7 +1,4 @@
 
-staticModel: MODEL_TEST test.mesh
-staticModel: MODEL_PLANE test.obj
-
 texture: TEX_VIEW_BG NULL
 texture: TEX_VIEW_BG_DEPTH NULL
 texture: TEX_VIEW_CUBE NULL
