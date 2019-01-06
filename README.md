@@ -33,7 +33,7 @@ It also depends on:
 
 - [Core Audio](https://developer.apple.com/library/archive/documentation/MusicAudio/Conceptual/CoreAudioOverview/WhatisCoreAudio/WhatisCoreAudio.html)
 
-The engine uses an abstraction layer between [OpenGL renderer](source/platform/gl_3/gl_3.h) and [CoreAudio](source/platform/core_audio/snd_driver_core_audio.h). These modules are  independent of the rest of the engine and could be easily replaced with another implementation. For example, the OpenGL renderer could be replaced with one for Metal or DirectX.
+The engine uses an abstraction layer between [OpenGL renderer](source/platform/gl_3/) and [CoreAudio](source/platform/core_audio/). These modules are  independent of the rest of the engine and could be easily replaced with another implementation. For example, the OpenGL renderer could be replaced with one for Metal or DirectX.
 
 ### iOS
 
