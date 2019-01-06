@@ -13,7 +13,8 @@ This repository contains:
 
 1. Install [SDL 2](https://www.libsdl.org)
 
-   Hombrew makes this easy:
+   Homebrew makes this easy:
+
    ```
    brew install sdl2
    ```
