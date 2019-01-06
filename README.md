@@ -47,7 +47,7 @@ Another game I wrote uses this engine on iOS. To port to iOS the SDL windowing n
 
 ## Game Data
 
-To run the game you will need to acquire the data. You can download this from the [Releases](https://github.com/justinmeiners/pre-rendered-backgrounds) page.
+To run the game you will need to acquire the data. You can download this from the [releases](https://github.com/justinmeiners/pre-rendered-backgrounds) page.
 
 # License
 
