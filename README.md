@@ -37,7 +37,7 @@ The engine uses an abstraction layer between [OpenGL renderer](source/platform/g
 
 ### iOS
 
-Another game I wrote uses this engine on iOS. To port to iOS the SDL windowing need to be replaced with a standard iOS OpenGL view. The shaders needs to be changed from 3.2 grammer to ES 2.0.
+Another game I wrote uses this engine on iOS. To port to iOS the SDL windowing need to be replaced with a standard iOS OpenGL view. The shaders needs to be changed from 3.2 GLSL grammer to the ES 2.0 version.
 
 ## Structure
 
