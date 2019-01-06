@@ -29,7 +29,7 @@ The inspiration for our game came from a rendering technique which was popular i
 
 This technique was used at the time because of the limitations of the graphics hardware. Since the scenery didn't need to be rendered in real-time the artists could put a lot more detail into them, and use sophisticated rendering software which was usually reserved for films. This also freed the graphics hardware to focus entirely on the characters and a few other objects in each scene.
 
-If you know anything about traditional animation, you know that something similar is used in hand-drawn animation. Since animators don't want to redraw detailed scenery, they paint a backdrop and only redraw the characters and moving objects on top. Although this likely inspired pre-rendered backgrounds, the motivations and methodologies are actually very different. I will discuss this more.
+If you know anything about traditional hand-drawn animation, you know that something similar is often used. Since it would be too time consuming to redraw an entire scene for every frame of a film, animators paint a backdrop and only redraw the characters and moving objects on top. Although this likely inspired pre-rendered backgrounds, the motivations and methodologies are actually very different. I will discuss this more later on.
 
 Below are examples of games that used the pre-rendered background technique.
 
@@ -54,7 +54,7 @@ Ocarina of Time isn't known for this technique, because it only uses pre-rendere
 
 ![Ocarina of Time](img/zelda.jpg) ![Ocarina of Time Links house](img/zelda2.jpg)
 
-### Alien Adventure
+## Prototype
 
 We thought that this technique had a lot of charm, and had not been utilized since this time. With modern hardware, we could push the original motivations even further, by having even more detailed backgrounds and characters. 
 
@@ -63,8 +63,6 @@ With this idea for an engine, we thought about what kind of game would make sens
 This concept art already looks like a possible scene in the game.
 
 ![alien concept](img/alien_concept.jpg)
-
-## Prototype
 
 The screenshots below show the final demo. The astronaut walks anywhere you click on the floor. He can also interact with objects, such as switches, by clicking on them (they are invisible for testing purposes). As the astronaut moves offscreen, the camera swaps to another view to follow him. The demo has only one scene: the astronaut's sleeping quarters, with 3 small rooms in this area.
 
