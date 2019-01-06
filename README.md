@@ -13,11 +13,10 @@ This repository contains:
 
 1. Install [SDL 2](https://www.libsdl.org)
 
-Hombrew makes this easy
-
-``` 
-brew install sdl2
-```
+   Hombrew makes this easy:
+   ```
+   brew install sdl2
+   ```
 
 2. Build and run in Xcode
 
