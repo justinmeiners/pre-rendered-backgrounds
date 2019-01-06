@@ -13,17 +13,17 @@ This repository contains:
 
 1. Install [SDL 2](https://www.libsdl.org)
 
-Hombrew makes this easy
+   Homebrew makes this easy:
 
-``` 
-brew install sdl2
-```
+   ```
+   brew install sdl2
+   ```
 
 2. Build and run in Xcode
 
 ## Building on other Platforms
 
-This project was written for macOS although it should be reasonably portable to other systems. The bulk of the code is portable C, or C which can be trivially adjusted to build on other platforms.
+This project was written for macOS, although it should be reasonably portable to other systems. The bulk of the code is portable C, or C which can be trivially adjusted to build on other platforms.
 
 It also depends on:
 
@@ -37,7 +37,7 @@ The engine uses an abstraction layer between [OpenGL renderer](source/platform/g
 
 ### iOS
 
-Another game I wrote uses this engine on iOS. To port to iOS the SDL windowing need to be replaced with a standard iOS OpenGL view. The shaders needs to be changed from 3.2 GLSL grammer to the ES 2.0 version.
+Another game I wrote uses this engine on iOS. To port to iOS the SDL windowing need to be replaced with a standard iOS OpenGL view. The shaders need to be changed from 3.2 GLSL grammer to the ES 2.0 version.
 
 ## Structure
 
@@ -50,7 +50,7 @@ Another game I wrote uses this engine on iOS. To port to iOS the SDL windowing n
 
 ## Game Data
 
-To run the game you will need to acquire the data. You can download this from the [releases](https://github.com/justinmeiners/pre-rendered-backgrounds) page.
+To run the game, you will need to acquire the data. You can download this from the [releases](https://github.com/justinmeiners/pre-rendered-backgrounds) page.
 
 # License
 
