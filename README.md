@@ -1,11 +1,13 @@
-# [READ ARTICLE HERE](https://justinmeiners.github.io/pre-rendered-backgrounds)
-
 # An Adventure in Pre-Rendered Backgrounds.
 
-Created by programmer [Justin Meiners](https://github.com/justinmeiners) and 3D artist [Hunter Rassmussen](https://github.com/).
+# [READ HERE](https://justinmeiners.github.io/pre-rendered-backgrounds)
 
-This repository contains the entire source code for our game prototype project, as well as an article summarizing our work. 
-It also contains the source code for a game engine written in C focused on mobile devices.
+Created by programmer [Justin Meiners](https://justinmeiners.github.io) and 3D artist [Hunter Rassmussen](https://github.com/HunterRasmussen).
+
+This repository contains:
+- the source code for our pre-rendered backgrounds game prototype.
+- a summary of our project.
+- the source code for a game engine written in C focused on mobile devices.
 
 ## Building on macOS
 
@@ -40,6 +42,7 @@ Another game I wrote uses this engine on iOS. To port to iOS the SDL windowing n
 ## Structure
 
 - `data/` game data such as models, textures, etc.
+- `docs/` the summary of our project.
 - `source/engine/` portable game and engine code.
 - `source/platform/` API or platform specific modules.
 - `support/` project files for Xcode or your IDE.
