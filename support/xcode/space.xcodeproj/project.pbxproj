@@ -59,9 +59,9 @@
 			fileType = pattern.proxy;
 			isEditable = 1;
 			outputFiles = (
-				"$(DERIVED_FILE_DIR)/$(INPUT_FILE_BASE)_assets.h",
+				"${INPUT_FILE_DIR}/${INPUT_FILE_BASE}_assets.h",
 			);
-			script = "cat \"${INPUT_FILE_PATH}\" | /Users/justin/assetmanifest > \"${DERIVED_FILE_DIR}/${INPUT_FILE_BASE}_assets.h\"";
+			script = "PATH=${PATH}:~/.worldc/bin\n\nif type assetmanifest > /dev/null; then\n    echo \"Building file\"\n    cat \"${INPUT_FILE_PATH}\" | assetmanifest > \"${INPUT_FILE_DIR}/${INPUT_FILE_BASE}_assets.h\"\nfi";
 		};
 /* End PBXBuildRule section */
 
@@ -162,6 +162,7 @@
 		D0B575B91ED8C81400D641A9 /* script.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = script.h; sourceTree = "<group>"; };
 		D0B575BB1ED8C93C00D641A9 /* script_system.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = script_system.h; sourceTree = "<group>"; };
 		D0B575BC1ED8C95500D641A9 /* script_system.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = script_system.c; sourceTree = "<group>"; };
+		D0E081AF21E1A24300E7C3FB /* data_assets.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = data_assets.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -379,6 +380,7 @@
 		D03630CC1ED4B8A100D8AABE /* game */ = {
 			isa = PBXGroup;
 			children = (
+				D0E081AF21E1A24300E7C3FB /* data_assets.h */,
 				D03630CD1ED4B8A100D8AABE /* data.assets */,
 				D03630CE1ED4B8A100D8AABE /* engine.c */,
 				D03630CF1ED4B8A100D8AABE /* engine.h */,
