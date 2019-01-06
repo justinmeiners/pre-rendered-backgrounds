@@ -1,0 +1,30 @@
+
+staticModel: MODEL_TEST test.mesh
+staticModel: MODEL_PLANE test.obj
+
+texture: TEX_VIEW_BG NULL
+texture: TEX_VIEW_BG_DEPTH NULL
+texture: TEX_VIEW_CUBE NULL
+
+texture: TEX_ASTRONAUT_ALBEDO characters/astronaut_albedo.png
+texture: TEX_ASTRONAUT_NORMAL characters/astronaut_normal.png
+texture: TEX_ASTRONAUT_SPECULAR characters/astronaut_specular.png
+texture: TEX_ASTRONAUT_GLOSS characters/astronaut_gloss.png
+
+skelModel: SKEL_ASTRONAUT characters/astronaut.skmesh
+skelAnim: ANIM_ASTRONAUT_IDLE characters/astronaut_idle.skanim
+skelAnim: ANIM_ASTRONAUT_WALK characters/astronaut_walk.skanim
+skelAnim: ANIM_ASTRONAUT_PRESS characters/astronaut_press.skanim
+
+sound: SOUND_GENERATOR sounds/generator.wav
+sound: SOUND_BEEP sounds/beep.wav
+sound: SOUND_TUNNEL sounds/tunnel.wav
+
+script: SCRIPT_GLOBAL NULL
+script: SCRIPT_LEVEL NULL
+
+staticModel: MODEL_WRENCH props/wrench.mesh
+
+texture: TEX_WRENCH_ALBEDO props/wrench_albedo.png
+texture: TEX_WRENCH_SPECULAR props/wrench_specular.png
+
