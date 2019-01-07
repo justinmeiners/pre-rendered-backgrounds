@@ -1,4 +1,4 @@
-# An Adventure in Pre-Rendered Backgrounds.
+# An Adventure in Pre-Rendered Backgrounds
 
 # [READ HERE](https://justinmeiners.github.io/pre-rendered-backgrounds)
 
