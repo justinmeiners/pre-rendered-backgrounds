@@ -402,11 +402,15 @@ The [source code](https://github.com/justinmeiners/pre-rendered-backgrounds) for
 
 Towards the end of the project, I was messing around with some toon style shading and came up with this render:
 
+**Toon Shading**
+
 ![toon astronaut](img/toon_astronaut.gif)
 
 That looked like a more exciting direction to take the art. The end goal of hyper-detailed rendering would be grungey realism. But, what if we turned that around and used pre-rendered backgrounds to make something unrealistic? What if the entire game looked like a comic book, including dialog bubbles and panels?  
 
 You could even model the levels with simple shapes to define the perspective and depth, and then hand paint the scenery on top!
+
+**Aliens comic**
 
 ![aliens comic](img/aliens_comic.jpg)
 
