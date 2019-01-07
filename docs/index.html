@@ -32,7 +32,7 @@
 <p>If you know anything about traditional 2D animation, you are familiar with a <a href="https://en.wikipedia.org/wiki/Cel">similar idea</a>. Since it is too time consuming to redraw an entire scene for every frame of a film, animators paint a backdrop and only redraw the characters and moving objects on top. Although this likely inspired pre-rendered backgrounds, the motivations and methodologies are actually very different. I will discuss this more later on.</p>
 <p>Here are examples of games that used the pre-rendered background technique.</p>
 <h4 id="finalfantasyvii">Final Fantasy VII</h4>
-<p>The backgrounds of Final Fantasy are beautiful and often include small animated pieces to avoid appearing too flat and static. You can view a large <a href="https://imgur.com/a/shRaP">gallery of backgrounds here</a>. You can also learn more about the game's technology <a href="http://q-gears.sourceforge.net/gears.pdf">from this analysis</a>.</p>
+<p>The backgrounds of Final Fantasy are beautiful and often include small animated pieces to avoid appearing too flat and static. You can admire a large <a href="https://imgur.com/a/shRaP">gallery of backgrounds here</a>. You can also learn more about the game's technology <a href="http://q-gears.sourceforge.net/gears.pdf">from this analysis</a>.</p>
 <p><strong>Slums</strong></p>
 <p><img src="img/ff7.jpg" alt="Final Fantasy 7" /></p>
 <h4 id="residentevil">Resident Evil</h4>
@@ -49,7 +49,7 @@
 <p><img src="img/zelda2.jpg" alt="Ocarina of Time Links house" /></p>
 <h2 id="prototype">Prototype</h2>
 <p>We thought that this technique had a lot of charm, and had been overlooked since this time. With modern hardware, we could push its original advantages even further, by having even more detailed backgrounds and characters, as well as have more freedom in creating scenery.</p>
-<p>With this idea for an engine, we thought about what kind of game would make sense. I really like the original <a href="https://en.wikipedia.org/wiki/Alien_%28film%29">Alien movie</a> and thought similar themes would fit into a slower paced exploration and adventure game. What if the entire game was just you and an Alien stuck on a ship? As you try to stay alive on the ship, you solve puzzles and face the alien in various encounters.</p>
+<p>With this idea for an engine, we thought about what kind of game would make sense. I really like the original Alien movie and thought similar themes would fit into a slower paced exploration and adventure game. What if the entire game was just you and an Alien stuck on a ship? As you try to stay alive on the ship, you solve puzzles and face the alien in various encounters.</p>
 <p>This movie concept art already looks like a possible scene in the game.</p>
 <p><strong>Prometheus Concept Art. By <a href="https://www.artstation.com/artwork/ayx0L">David Levy</a></strong></p>
 <p><img src="img/alien_concept.jpg" alt="alien concept" /></p>
@@ -58,7 +58,7 @@
 <p><img src="img/screenshot2.jpg" alt="screenshot2" /></p>
 <p>We didn't get close to our vision for the small game and finished the summer with only one character, and almost no gameplay. This is mostly due to how long it took for us to create artwork, even at placeholder quality. </p>
 <p>Whenever you create a new system, there are millions of tiny questions that need to be answered about how the parts should fit together, or which approach should be taken in a particular circumstance. This is one of the tough parts of doing something new. What we created is a vertical slice of the engine that answers these critical artistic and technical questions, such as, "what goes into making a scene?" "how big should the player be?" "how should sound combine with scenes?". With these questions answered we could now horizontally scale out the prototype into a game.</p>
-<p>In the rest of this article, we will review some of the questions we faced and explain our solutions for them. </p>
+<p>In the rest of this article, we will review some of the problems we faced and explain our solutions for them. </p>
 <h2 id="engine">Engine</h2>
 <p>I adapted an engine I had written for a <a href="https://justinmeiners.github.io/articles/shamans-history/">previous game</a>. It is written entirely in C and targets OpenGL ES 2.0 &amp; OpenGL 3.2 hardware (macOS, iPhone, iPad, etc). This generation of OpenGL APIs focused on a fully programmable fragment and vertex stage, but do not yet support geometry and tessellation shaders.</p>
 <p>The primary function of the engine is to load, manage, and apply operations to 3D assets. It is largely flexible in regards to how the actual gameplay is programmed. Most of the asset formats are entirely custom and have custom export scripts for Blender. It also supports <a href="https://en.wikipedia.org/wiki/Wavefront_.obj_file">OBJ</a> for prototyping static models. I am especially proud of the skeletal animation system inspired by Doom 3's  <a href="http://tfc.duke.free.fr/coding/md5-specs-en.html">MD5 file format</a>. The system is very simple, and flexible, for attaching items to bones or writing parametric driven animations. The skinning is also computed entirely on the GPU.</p>
@@ -227,7 +227,7 @@ with items dropped by enemies.&lt;NOD&lt;END
 <p><strong>High-res sculpt</strong></p>
 <p><img src="img/high_resolution.jpg" alt="astronaught high resolution" /></p>
 <p>This is a standard technique for generating normal maps. The normals from the high-res mesh are baked on to the low-res surface. You can learn more about how to use this technique from <a href="http://www.paultosca.com/makingofvarga.html">Making of Varga</a>.</p>
-<p>To finish off the material we created a specular map, which controls the color and intensity of specular reflections, and a gloss map, which controls how shiny each surface appears. The normal map makes the most significant difference overall, but the other maps are important for making each part of the model look like its intended material. </p>
+<p>To finish off the material we created a specular map, which controls the color and intensity of specular reflections, and a gloss map, which controls how shiny each surface appears. The normal map makes the most significant difference overall, but the other maps are important for making each part of the model look like <a href="http://www.manufato.com/?p=902">its intended material</a>. </p>
 <p>This material model was popular for PS3 and Xbox-360 games but has since been replaced by <a href="https://marmoset.co/posts/physically-based-rendering-and-you-can-too/">physically based rendering</a> which has a lot of production advantages along with being more correct.</p>
 <p><strong>All 4 astronaut texture maps</strong></p>
 <p><img src="img/texture_maps.jpg" alt="astronaught texture maps" /></p>

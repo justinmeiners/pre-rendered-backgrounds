@@ -35,7 +35,7 @@ Here are examples of games that used the pre-rendered background technique.
 
 #### Final Fantasy VII
 
-The backgrounds of Final Fantasy are beautiful and often include small animated pieces to avoid appearing too flat and static. You can view a large [gallery of backgrounds here](https://imgur.com/a/shRaP). You can also learn more about the game's technology [from this analysis](http://q-gears.sourceforge.net/gears.pdf).
+The backgrounds of Final Fantasy are beautiful and often include small animated pieces to avoid appearing too flat and static. You can admire a large [gallery of backgrounds here](https://imgur.com/a/shRaP). You can also learn more about the game's technology [from this analysis](http://q-gears.sourceforge.net/gears.pdf).
 
 **Slums**
 
@@ -69,7 +69,7 @@ Ocarina of Time isn't known for this technique, because it only uses pre-rendere
 
 We thought that this technique had a lot of charm, and had been overlooked since this time. With modern hardware, we could push its original advantages even further, by having even more detailed backgrounds and characters, as well as have more freedom in creating scenery.
 
-With this idea for an engine, we thought about what kind of game would make sense. I really like the original [Alien movie](https://en.wikipedia.org/wiki/Alien_%28film%29) and thought similar themes would fit into a slower paced exploration and adventure game. What if the entire game was just you and an Alien stuck on a ship? As you try to stay alive on the ship, you solve puzzles and face the alien in various encounters.
+With this idea for an engine, we thought about what kind of game would make sense. I really like the original Alien movie and thought similar themes would fit into a slower paced exploration and adventure game. What if the entire game was just you and an Alien stuck on a ship? As you try to stay alive on the ship, you solve puzzles and face the alien in various encounters.
 
 This movie concept art already looks like a possible scene in the game.
 
@@ -87,7 +87,7 @@ The screenshots below show the final demo. The astronaut walks anywhere you clic
 
 Whenever you create a new system, there are millions of tiny questions that need to be answered about how the parts should fit together, or which approach should be taken in a particular circumstance. This is one of the tough parts of doing something new. What we created is a vertical slice of the engine that answers these critical artistic and technical questions, such as, "what goes into making a scene?" "how big should the player be?" "how should sound combine with scenes?". With these questions answered we could now horizontally scale out the prototype into a game.
 
-In the rest of this article, we will review some of the questions we faced and explain our solutions for them. 
+In the rest of this article, we will review some of the problems we faced and explain our solutions for them. 
 
 ## Engine
 
