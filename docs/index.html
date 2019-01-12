@@ -8,7 +8,7 @@
 <body>
 <h1 id="anadventureinprerenderedbackgrounds">An Adventure in Pre-Rendered Backgrounds</h1>
 <p>Programmer: <a href="https://github.com/justinmeiners">Justin Meiners</a> </p>
-<p>3D Artist: <a href="https://github.com/HunterRasmussen">Hunter Rassmussen</a></p>
+<p>3D Artist: <a href="https://github.com/HunterRasmussen">Hunter Rasmussen</a></p>
 <p>Source Code: <a href="https://github.com/justinmeiners/pre-rendered-backgrounds">GitHub Repo</a></p>
 <h2 id="contents">Contents</h2>
 <ol>
@@ -74,7 +74,7 @@
 </ul>
 <p>I tried to keep them decoupled, but it was not helpful to try and make them entirely independent. The engine calls into most of the systems, but, for example, GuiSystem may call some functions of InputSystem.</p>
 <p>I like plain C quite a bit, especially for games. Along with ability to fit your program perfectly to the hardware, it forces you to solve concrete problems in the <a href="http://wiki.c2.com/?DoTheSimplestThingThatCouldPossiblyWork">simplest possible way</a>. When approaching a new feature, it is pretty clear what you need to do. You think about what structs are needed to represent data, and what functions you need to operate on them and you write them. In Boost style C++, I find myself thinking more about the general cases, rather than the one I actually need to solve. But writing abstractions is the exception not the rule. Don't get me wrong, I still love generic programming and think it can be very useful, but it isn't the best solution for every problem.</p>
-<p>Abstraction and generalization are still possible in C, but they aren't the default. You create them as needed. For example, the OpenGL render and sound driver are entirely abstracted away from the rest of the code. Both are defined as <a href="../source/engine/render/renderer.h">structs of function pointers</a> which are implemented for each desired API. This keeps the rest of the code insulated from platform specific APIs which makes it easier to reason about and port to other platforms.</p>
+<p>Abstraction and generalization are still possible in C, but they aren't the default. You create them as needed. For example, the OpenGL render and sound driver are entirely abstracted away from the rest of the code. Both are defined as <a href="https://github.com/justinmeiners/pre-rendered-backgrounds/blob/master/source/engine/render/renderer.h">structs of function pointers</a> which are implemented for each desired API. This keeps the rest of the code insulated from platform specific APIs which makes it easier to reason about and port to other platforms.</p>
 <h2 id="perspective">Perspective</h2>
 <p>For pre-rendered backgrounds to function in the game, they must match the visuals of the real-time objects, <em>and</em> the gameplay in the scene. If the characters are drawn with a different camera angle or perspective than the background portrays, they won't look like they are actually there. The characters will appear to stand on top of a scene, rather than being inside it. If what the player sees on the screen doesn't match what is actually happening, then they will have a frustrating experience. In other words, the walls and barriers in the background should behave like walls and barriers to the player.</p>
 <p>We can summarize this by saying, <em>The closer the pre-rendered backgrounds match the game the more they will feel a part of the game</em>.</p>

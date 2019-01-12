@@ -2,7 +2,7 @@
 
 Programmer: [Justin Meiners](https://github.com/justinmeiners) 
 
-3D Artist: [Hunter Rassmussen](https://github.com/HunterRasmussen)
+3D Artist: [Hunter Rasmussen](https://github.com/HunterRasmussen)
 
 Source Code: [GitHub Repo](https://github.com/justinmeiners/pre-rendered-backgrounds)
 

@@ -2,7 +2,7 @@
 
 # [READ HERE](https://justinmeiners.github.io/pre-rendered-backgrounds)
 
-Created by programmer [Justin Meiners](https://justinmeiners.github.io) and 3D artist [Hunter Rassmussen](https://github.com/HunterRasmussen).
+Created by programmer [Justin Meiners](https://justinmeiners.github.io) and 3D artist [Hunter Rasmussen](https://github.com/HunterRasmussen).
 
 This repository contains:
 - the source code for our pre-rendered backgrounds game prototype.
