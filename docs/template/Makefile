@@ -1,6 +1,6 @@
-../index.html: ../index.md prefix.html suffix.html
+../index.html: ../README.md prefix.html suffix.html
 	cat prefix.html > index.html
-	pandoc ../index.md --from=gfm -t html >> index.html
+	pandoc ../README.md --from=gfm -t html >> index.html
 	cat suffix.html >> index.html
 	mv index.html ../
 
