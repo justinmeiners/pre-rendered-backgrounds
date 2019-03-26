@@ -18,8 +18,8 @@ Source Code: [GitHub Repo](https://github.com/justinmeiners/pre-rendered-backgro
 8. [Scripting](#scripting)
 9. [Backgrounds](#backgrounds)
 10. [Character](#character)
-11. [The Future](#thefuture)
-12. [Additional References](#additionalreferences)
+11. [The Future](#the-future)
+12. [Additional References](#additional-references)
 
 ## History
 
@@ -207,20 +207,19 @@ Coercing Blender to render a depth buffer was tricky since it isn't used for its
 
 The following snippet shows how the fragment shader renders both the color and depth values. The linear depth buffer values are scaled appropriately.
 
-```GLSL
-vec4 depth = texture(u_depth, v_uv);
-    
-float near = 0.5;
-float far = 25.0;
-float z_linear = depth.r;
-    
-float z_non_linear = -((near + far) * z_linear - (2.0 * near)) / ((near - far) * z_linear); 
-gl_FragDepth = z_linear;
-    
-// Copy background color
-vec4 color = texture(u_albedo, v_uv);
-fragColor = color; 
-```
+    vec4 depth = texture(u_depth, v_uv);
+        
+    float near = 0.5;
+    float far = 25.0;
+    float z_linear = depth.r;
+        
+    float z_non_linear = -((near + far) * z_linear - (2.0 * near)) / ((near - far) * z_linear); 
+    gl_FragDepth = z_linear;
+        
+    // Copy background color
+    vec4 color = texture(u_albedo, v_uv);
+    fragColor = color; 
+
 I tried to create a post-process filter which would encode the depth buffer in Blender. Then the shader could copy directly into the depth buffer without transforming from linear, but for some reason, I couldn't get this precise enough to be satisfied with.
 
 Some graphics hardware doesn't support writing to the depth buffer in a shader. Even OpenGL ES 2.0 requires an [extension](https://www.khronos.org/registry/OpenGL/extensions/EXT/EXT_frag_depth.txt). You may be able to accomplish something similar with [glColorMask](https://www.khronos.org/registry/OpenGL-Refpages/es2.0/xhtml/glColorMask.xml) and a fullscreen quad.
@@ -255,12 +254,10 @@ The cubemaps don't need to be very high resolution to give a nice looking effect
 
 Here is the reflection code, which is fairly standard. The camera direction is simply reflected along the surface normal. This resulting vector is used to lookup a color in the cubemap.
 
-```GLSL
-vec3 viewDir = normalize(v_fragPosition - u_camPosition);
+    vec3 viewDir = normalize(v_fragPosition - u_camPosition);
 
-vec3 envVec = reflect(viewDir, normal);
-vec3 envColor = texture(u_envMap, vec3(envVec.x, -envVec.y, envVec.z)).rgb;
-```
+    vec3 envVec = reflect(viewDir, normal);
+    vec3 envColor = texture(u_envMap, vec3(envVec.x, -envVec.y, envVec.z)).rgb;
 
 ## Scripting
 
@@ -274,20 +271,18 @@ The language is structured like assembly but is interpreted in plain text. It do
 
 Here is a sample:
 
-```
-#0030
-<PRI<FLJ0202:0032<FLJ0201:0031<FL+0201<GIT0005<AM+0005:0010
-<CMU0010Got the =Missile Launcher=!<WAI0160<NOD<RMU<CLRThe Missile Launcher is a powerful
-weapon, but its ammo is limited.<NOD
-You can replenish your stockpile
-with items dropped by enemies.<NOD<END
-#0031
-<PRI<AM+0005:0005<MSG
-<GIT0006Max missiles increased by <NUM0000!<NOD<END
-#0032
-<PRI<AM+0010:0005<MSG
-<GIT0011Max missiles increased by <NUM0000!<NOD<END
-```
+    #0030
+    <PRI<FLJ0202:0032<FLJ0201:0031<FL+0201<GIT0005<AM+0005:0010
+    <CMU0010Got the =Missile Launcher=!<WAI0160<NOD<RMU<CLRThe Missile Launcher is a powerful
+    weapon, but its ammo is limited.<NOD
+    You can replenish your stockpile
+    with items dropped by enemies.<NOD<END
+    #0031
+    <PRI<AM+0005:0005<MSG
+    <GIT0006Max missiles increased by <NUM0000!<NOD<END
+    #0032
+    <PRI<AM+0010:0005<MSG
+    <GIT0011Max missiles increased by <NUM0000!<NOD<END
 
 I had some questions about how TSC is interpreted so I contacted a Cave Story expert. This is probably more info than most readers care about, but it tells how rudimentary the scripts are. I decided include it for those who are interested.
 
@@ -297,28 +292,26 @@ I had some questions about how TSC is interpreted so I contacted a Cave Story ex
 
 Here is a sample of my inspired language. I made my syntax a bit more flexible and robust while retaining the simple goto control flow.
 
-```
-#bathroom
-    AMB "SOUND_TUNNEL"
-    END
+    #bathroom
+        AMB "SOUND_TUNNEL"
+        END
 
-#hallway
-    AMB "SOUND_GENERATOR"
-    END
+    #hallway
+        AMB "SOUND_GENERATOR"
+        END
 
-#bedroom
-    AMB "SOUND_TUNNEL"
-    END
+    #bedroom
+        AMB "SOUND_TUNNEL"
+        END
 
-#elevButton
-    SND "SOUND_BEEP"
-    CTL 0
-    PATH "exit_waypoint"
-    WPATH
-    CTL 1
-    SND "SOUND_BEEP"
-    END
-```
+    #elevButton
+        SND "SOUND_BEEP"
+        CTL 0
+        PATH "exit_waypoint"
+        WPATH
+        CTL 1
+        SND "SOUND_BEEP"
+        END
 
 This was my first time designing an interpreted language, and unfortunately I made a few mistakes. A major one was the lack of ability to maintain the state of the machine when calling into C code. For example, if script A triggers a game event which starts script B, then B takes control of the program counter and does not continue with A's sequence of events. My script language would need to be redesigned before it was usable. Maybe next time I'll try something like Forth.
 

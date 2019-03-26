@@ -3,11 +3,116 @@
 <head>
 <meta charset="UTF-8">
 <title>An Adventure in Pre-Rendered Backgrounds</title>
-<link rel="stylesheet" type="text/css" href="css/main.css">
+<style>
+/* http://jasonm23.github.io/markdown-css-themes/ */
+
+html { font-size: 100%; overflow-y: scroll; -webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; }
+
+body{
+    color:#444;
+        font-family:Georgia, Palatino, 'Palatino Linotype', Times, 'Times New Roman', serif;
+            font-size:12px;
+                line-height:1.5em;
+                    padding:1em;
+                        margin:auto;
+                            max-width:42em;
+                                background:#fefefe;
+}
+
+a{ color: #0645ad; text-decoration:none;}
+a:visited{ color: #0b0080; }
+a:hover{ color: #06e; }
+a:active{ color:#faa700; }
+a:focus{ outline: thin dotted; }
+a:hover, a:active{ outline: 0; }
+
+::-moz-selection{background:rgba(255,255,0,0.3);color:#000}
+::selection{background:rgba(255,255,0,0.3);color:#000}
+
+a::-moz-selection{background:rgba(255,255,0,0.3);color:#0645ad}
+a::selection{background:rgba(255,255,0,0.3);color:#0645ad}
+
+p{
+    margin:1em 0;
+}
+
+img{
+    max-width:100%;
+}
+
+h1,h2,h3,h4,h5,h6{
+    font-weight:normal;
+        color:#111;
+            line-height:1em;
+}
+h4,h5,h6{ font-weight: bold; }
+h1{ font-size:2.5em; }
+h2{ font-size:2em; }
+h3{ font-size:1.5em; }
+h4{ font-size:1.2em; }
+h5{ font-size:1em; }
+h6{ font-size:0.9em; }
+
+blockquote{
+    color:#666666;
+        margin:0;
+            padding-left: 3em;
+                border-left: 0.5em #EEE solid;
+}
+hr { display: block; height: 2px; border: 0; border-top: 1px solid #aaa;border-bottom: 1px solid #eee; margin: 1em 0; padding: 0; }
+pre, code, kbd, samp { color: #000; font-family: monospace, monospace; _font-family: 'courier new', monospace; font-size: 0.98em; }
+pre { white-space: pre; white-space: pre-wrap; word-wrap: break-word; }
+
+b, strong { font-weight: bold; }
+
+dfn { font-style: italic; }
+
+ins { background: #ff9; color: #000; text-decoration: none; }
+
+mark { background: #ff0; color: #000; font-style: italic; font-weight: bold; }
+
+sub, sup { font-size: 75%; line-height: 0; position: relative; vertical-align: baseline; }
+sup { top: -0.5em; }
+sub { bottom: -0.25em; }
+
+ul, ol { margin: 1em 0; padding: 0 0 0 2em; }
+li p:last-child { margin:0 }
+dd { margin: 0 0 0 2em; }
+
+img { border: 0; -ms-interpolation-mode: bicubic; vertical-align: middle; }
+
+table { border-collapse: collapse; border-spacing: 0; }
+td { vertical-align: top; }
+
+@media only screen and (min-width: 480px) {
+    body{font-size:14px;}
+}
+
+@media only screen and (min-width: 768px) {
+    body{font-size:16px;}
+}
+
+@media print {
+      * { background: transparent !important; color: black !important; filter:none !important; -ms-filter: none !important; }
+        body{font-size:12pt; max-width:100%;}
+          a, a:visited { text-decoration: underline; }
+            hr { height: 1px; border:0; border-bottom:1px solid black; }
+              a[href]:after { content: " (" attr(href) ")"; }
+                abbr[title]:after { content: " (" attr(title) ")"; }
+                  .ir a:after, a[href^="javascript:"]:after, a[href^="#"]:after { content: ""; }
+                    pre, blockquote { border: 1px solid #999; padding-right: 1em; page-break-inside: avoid; }
+                      tr, img { page-break-inside: avoid; }
+                        img { max-width: 100% !important; }
+                          @page :left { margin: 15mm 20mm 15mm 10mm; }
+                            @page :right { margin: 15mm 10mm 15mm 20mm; }
+                              p, h2, h3 { orphans: 3; widows: 3; }
+                                h2, h3 { page-break-after: avoid; }
+}
+</style>
 </head>
 <body>
-<h1 id="anadventureinprerenderedbackgrounds">An Adventure in Pre-Rendered Backgrounds</h1>
-<p>Programmer: <a href="https://github.com/justinmeiners">Justin Meiners</a> </p>
+<h1 id="an-adventure-in-pre-rendered-backgrounds">An Adventure in Pre-Rendered Backgrounds</h1>
+<p>Programmer: <a href="https://github.com/justinmeiners">Justin Meiners</a></p>
 <p>3D Artist: <a href="https://github.com/HunterRasmussen">Hunter Rasmussen</a></p>
 <p>Source Code: <a href="https://github.com/justinmeiners/pre-rendered-backgrounds">GitHub Repo</a></p>
 <h2 id="contents">Contents</h2>
@@ -22,29 +127,29 @@
 <li><a href="#scripting">Scripting</a></li>
 <li><a href="#backgrounds">Backgrounds</a></li>
 <li><a href="#character">Character</a></li>
-<li><a href="#thefuture">The Future</a></li>
-<li><a href="#additionalreferences">Additional References</a></li>
+<li><a href="#the-future">The Future</a></li>
+<li><a href="#additional-references">Additional References</a></li>
 </ol>
 <h2 id="history">History</h2>
 <p>In the summer of 2017, Hunter and I (Justin) wanted to make a game together. Since we still had jobs (and needless to say, a very limited amount of time), we set a goal to make as simple a project as possible, with just two characters, one level, and point-and-click game mechanics.</p>
-<p>Our game was inspired by a rendering technique which was popular in the mid-1990s on the PlayStation and, to a lesser extent, the Nintendo 64. Instead of rendering a full 3D environment in-game, artists created still-images of the scenery offline. The game then drew interactive 3D objects on top of this static background. The characters and objects could move around freely, but of course, the background remained fixed for each scene. </p>
+<p>Our game was inspired by a rendering technique which was popular in the mid-1990s on the PlayStation and, to a lesser extent, the Nintendo 64. Instead of rendering a full 3D environment in-game, artists created still-images of the scenery offline. The game then drew interactive 3D objects on top of this static background. The characters and objects could move around freely, but of course, the background remained fixed for each scene.</p>
 <p>This technique was used at the time because of the limitations of the graphics hardware. Since the scenery didn't need to be rendered 30 times per second, the artists could add a lot more detail, and use sophisticated rendering software which was usually reserved for films. This also freed the graphics hardware to focus entirely on the characters and the few other objects in the scene.</p>
 <p>If you know anything about traditional 2D animation, you are familiar with a <a href="https://en.wikipedia.org/wiki/Cel">similar idea</a>. Since it is too time consuming to redraw an entire scene for every frame of a film, animators paint a backdrop and only redraw the characters and moving objects on top. Although this likely inspired pre-rendered backgrounds, the motivations and methodologies are actually very different. I will discuss this more later on.</p>
 <p>Here are examples of games that used the pre-rendered background technique.</p>
-<h4 id="finalfantasyvii">Final Fantasy VII</h4>
+<h4 id="final-fantasy-vii">Final Fantasy VII</h4>
 <p>The backgrounds of Final Fantasy are beautiful and often include small animated pieces to avoid appearing too flat and static. You can admire a large <a href="https://imgur.com/a/shRaP">gallery of backgrounds here</a>. You can also learn more about the game's technology <a href="http://q-gears.sourceforge.net/gears.pdf">from this analysis</a>.</p>
 <p><strong>Slums</strong></p>
 <p><img src="img/ff7.jpg" alt="Final Fantasy 7" /></p>
-<h4 id="residentevil">Resident Evil</h4>
+<h4 id="resident-evil">Resident Evil</h4>
 <p>Resident Evil leveraged the limitations of pre-rendered backgrounds to its advantage. Because the designers had full control of the camera, they were able to craft some cinematic and <a href="https://youtu.be/N92RAQ3mvMA?t=3138">scary scenes</a> which weren't possible using other techniques. The later games in the series moved to a free camera and full 3D environments and subsequently transformed from horror games into action games.</p>
 <p><strong>Resident Evil</strong></p>
 <p><img src="img/resident_evil2.jpg" alt="Resident Evil" /></p>
 <p><strong>Resident Evil 2</strong></p>
 <p><img src="img/resident_evil.jpg" alt="Resident Evil" /></p>
-<h4 id="thelegendofzeldaocarniaoftime">The Legend of Zelda: Ocarnia of Time</h4>
+<h4 id="the-legend-of-zelda-ocarnia-of-time">The Legend of Zelda: Ocarnia of Time</h4>
 <p>Ocarina of Time isn't known for this technique, because it only uses pre-rendered backgrounds in a <a href="http://wiki.spinout182.com/w/Zelda_64:_JFIF_Backgrounds">few scenes</a>, such as inside Link's house and outside the Temple of Time. Unlike the other games, it is not clear to me why this technique was included at all. Perhaps it allowed them to create impressive looking vistas, but this didn't seem to be a limitation outside of <a href="https://youtu.be/wfmu0Lln4MU?t=19">Ganon's castle</a>. Another possibility is it allowed the team to produce these scenes faster.</p>
 <p><strong>Temple of Time</strong></p>
-<p><img src="img/zelda.jpg" alt="Ocarina of Time" /> </p>
+<p><img src="img/zelda.jpg" alt="Ocarina of Time" /></p>
 <p><strong>Link's House</strong></p>
 <p><img src="img/zelda2.jpg" alt="Ocarina of Time Links house" /></p>
 <h2 id="prototype">Prototype</h2>
@@ -56,12 +161,12 @@
 <p>The screenshots below show the final demo. The astronaut walks anywhere you click on the floor. He can also interact with objects, such as switches, by clicking on them (they are invisible for testing purposes). As the astronaut moves offscreen, the camera swaps to another view to follow him. The demo has only one scene: the astronaut's sleeping quarters, with 3 small rooms in this area.</p>
 <p><img src="img/screenshot1.jpg" alt="screenshot1" /></p>
 <p><img src="img/screenshot2.jpg" alt="screenshot2" /></p>
-<p>We didn't get close to our vision for the small game and finished the summer with only one character, and almost no gameplay. This is mostly due to how long it took for us to create artwork, even at placeholder quality. </p>
+<p>We didn't get close to our vision for the small game and finished the summer with only one character, and almost no gameplay. This is mostly due to how long it took for us to create artwork, even at placeholder quality.</p>
 <p>Whenever you create a new system, there are millions of tiny questions that need to be answered about how the parts should fit together, or which approach should be taken in a particular circumstance. This is one of the tough parts of doing something new. What we created is a vertical slice of the engine that answers these critical artistic and technical questions, such as, "what goes into making a scene?" "how big should the player be?" "how should sound combine with scenes?". With these questions answered we could now horizontally scale out the prototype into a game.</p>
-<p>In the rest of this article, we will review some of the problems we faced and explain our solutions for them. </p>
+<p>In the rest of this article, we will review some of the problems we faced and explain our solutions for them.</p>
 <h2 id="engine">Engine</h2>
 <p>I adapted an engine I had written for a <a href="https://justinmeiners.github.io/articles/shamans-history/">previous game</a>. It is written entirely in C and targets OpenGL ES 2.0 &amp; OpenGL 3.2 hardware (macOS, iPhone, iPad, etc). This generation of OpenGL APIs focused on a fully programmable fragment and vertex stage, but do not yet support geometry and tessellation shaders.</p>
-<p>The primary function of the engine is to load, manage, and apply operations to 3D assets. It is largely flexible in regards to how the actual gameplay is programmed. Most of the asset formats are entirely custom and have custom export scripts for Blender. It also supports <a href="https://en.wikipedia.org/wiki/Wavefront_.obj_file">OBJ</a> for prototyping static models. I am especially proud of the skeletal animation system inspired by Doom 3's  <a href="http://tfc.duke.free.fr/coding/md5-specs-en.html">MD5 file format</a>. The system is very simple, and flexible, for attaching items to bones or writing parametric driven animations. The skinning is also computed entirely on the GPU.</p>
+<p>The primary function of the engine is to load, manage, and apply operations to 3D assets. It is largely flexible in regards to how the actual gameplay is programmed. Most of the asset formats are entirely custom and have custom export scripts for Blender. It also supports <a href="https://en.wikipedia.org/wiki/Wavefront_.obj_file">OBJ</a> for prototyping static models. I am especially proud of the skeletal animation system inspired by Doom 3's <a href="http://tfc.duke.free.fr/coding/md5-specs-en.html">MD5 file format</a>. The system is very simple, and flexible, for attaching items to bones or writing parametric driven animations. The skinning is also computed entirely on the GPU.</p>
 <p>The engine is divided into systems, each with their own responsibilities:</p>
 <ul>
 <li><p>SndSystem</p></li>
@@ -84,8 +189,7 @@
 <p><strong>In-game camera view</strong></p>
 <p><img src="img/camera_view_game.jpg" alt="camera view game" /></p>
 <p>The scenes are modeled in Blender in full detail with materials and lighting. After the scene is complete, <em>then</em> we place cameras at viewpoints of interest, making sure that the cameras can see every area that the player can walk.</p>
-<p>Our thinking here is that we want the scenes to look good from all angles. This allows us to adjust camera angles freely. 
-It also removes the temptation to create a "false view" for one camera, which isn't accurately depicted by the others. This strategy could be extended to the whole game. Instead of creating the game scenery in pieces, you could model the entire ship coherently, an then add in cameras and games objects.</p>
+<p>Our thinking here is that we want the scenes to look good from all angles. This allows us to adjust camera angles freely. It also removes the temptation to create a "false view" for one camera, which isn't accurately depicted by the others. This strategy could be extended to the whole game. Instead of creating the game scenery in pieces, you could model the entire ship coherently, an then add in cameras and games objects.</p>
 <p>A navigation mesh is tailored to fit the floor and represents the playable or walkable area. Unlike the scenery, this navigation mesh exists in the actual game and is used to move the characters. Each edge of the navigation mesh can be flagged with attributes, such as whether the edge is a wall or just an area that the player cannot walk (like a hole).</p>
 <p><strong>Scene in blender</strong></p>
 <p><img src="img/blender_level.jpg" alt="blender level" /></p>
@@ -110,31 +214,28 @@ It also removes the temptation to create a "false view" for one camera, which is
 <p>Unlike movies, games don't have control over all the objects in the scene. In a game, the depth of objects in a scene is dynamic. What happens if the player walks behind an object?</p>
 <p>I initially wondered if this could be resolved by dividing the pre-rendered images into two layers: foreground and background, as shown in the movie. The foreground would always be drawn last, over top of the interactive objects.</p>
 <p>I did a test render to try it out. (Yes, the artwork is awful!)</p>
-<p><strong>Background & Foreground</strong></p>
+<p><strong>Background &amp; Foreground</strong></p>
 <p><img src="img/layer_proto_bg.jpg" alt="Layer Prototype Background" /> <img src="img/layer_proto_fg.jpg" alt="Layer Prototype Foreground" /></p>
 <p><strong>Combined</strong></p>
 <p><img src="img/layer_proto_full.jpg" alt="Layer Prototype combined" /></p>
-<p>Although this works well for the foreground structure, you can see right away that this comes with a lot of restrictions. What about the columns and benches? 
-Can't the player walk in front of and behind those? Clearly, a column cannot be safely assigned to either layer <em>unless you force the player to only walk on one side of it</em>.</p>
-<p>One could design a game around this layering system, but it would require a lot of tedious planning to make sure that you never had objects that could be walked in front of and behind. 
-Final Fantasy VII actually does something similar, as explained in the <a href="http://q-gears.sourceforge.net/gears.pdf">analysis</a> I mentioned earlier. The background is cut up into tiles, and each of these is assigned a draw order. They <a href="https://youtu.be/KhSicdniIng?t=75">appear to</a> dynamically adjust so the player can move in front of and behind certain objects.</p>
-<p><strong>Final Fantasy VII Background & Tiles</strong></p>
+<p>Although this works well for the foreground structure, you can see right away that this comes with a lot of restrictions. What about the columns and benches? Can't the player walk in front of and behind those? Clearly, a column cannot be safely assigned to either layer <em>unless you force the player to only walk on one side of it</em>.</p>
+<p>One could design a game around this layering system, but it would require a lot of tedious planning to make sure that you never had objects that could be walked in front of and behind. Final Fantasy VII actually does something similar, as explained in the <a href="http://q-gears.sourceforge.net/gears.pdf">analysis</a> I mentioned earlier. The background is cut up into tiles, and each of these is assigned a draw order. They <a href="https://youtu.be/KhSicdniIng?t=75">appear to</a> dynamically adjust so the player can move in front of and behind certain objects.</p>
+<p><strong>Final Fantasy VII Background &amp; Tiles</strong></p>
 <p><img src="img/ff7_layers.jpg" alt="ff7 background layers" /></p>
 <p>I wanted something more robust and flexible. I then had the idea to pre-render a <a href="https://en.wikipedia.org/wiki/Z-buffering">depth buffer</a> along with each background. Provided that the camera in Blender and in the game and used the same <a href="https://en.wikipedia.org/wiki/Viewing_frustum">near and far planes</a> the pre-rendered depth buffer would be equivalent to a depth buffer from rendering the same scene in real-time.</p>
-<h4 id="depthbuffer">Depth Buffer</h4>
+<h4 id="depth-buffer">Depth Buffer</h4>
 <p><img src="img/layer_proto_depth.jpg" alt="Layer Prototype Depth" /></p>
-<p>Coercing Blender to render a depth buffer was tricky since it isn't used for its raytracing renderer. The best I could do is create a linear depth buffer. However, OpenGL <a href="https://www.sjbaker.org/steve/omniv/love_your_z_buffer.html">does not uses a linear depth buffer</a>
-. It prioritizes higher precision for objects close to the camera and uses less precision for those far away. (Just like floating point does with large and small values.) This makes a lot of sense since you don't care as much about minuscule differences in depth, at long distances. </p>
+<p>Coercing Blender to render a depth buffer was tricky since it isn't used for its raytracing renderer. The best I could do is create a linear depth buffer. However, OpenGL <a href="https://www.sjbaker.org/steve/omniv/love_your_z_buffer.html">does not uses a linear depth buffer</a> . It prioritizes higher precision for objects close to the camera and uses less precision for those far away. (Just like floating point does with large and small values.) This makes a lot of sense since you don't care as much about minuscule differences in depth, at long distances.</p>
 <p>The following snippet shows how the fragment shader renders both the color and depth values. The linear depth buffer values are scaled appropriately.</p>
-<pre><code class="GLSL language-GLSL">vec4 depth = texture(u_depth, v_uv);
-
+<pre><code>vec4 depth = texture(u_depth, v_uv);
+    
 float near = 0.5;
 float far = 25.0;
 float z_linear = depth.r;
-
+    
 float z_non_linear = -((near + far) * z_linear - (2.0 * near)) / ((near - far) * z_linear); 
 gl_FragDepth = z_linear;
-
+    
 // Copy background color
 vec4 color = texture(u_albedo, v_uv);
 fragColor = color; 
@@ -142,22 +243,20 @@ fragColor = color;
 <p>I tried to create a post-process filter which would encode the depth buffer in Blender. Then the shader could copy directly into the depth buffer without transforming from linear, but for some reason, I couldn't get this precise enough to be satisfied with.</p>
 <p>Some graphics hardware doesn't support writing to the depth buffer in a shader. Even OpenGL ES 2.0 requires an <a href="https://www.khronos.org/registry/OpenGL/extensions/EXT/EXT_frag_depth.txt">extension</a>. You may be able to accomplish something similar with <a href="https://www.khronos.org/registry/OpenGL-Refpages/es2.0/xhtml/glColorMask.xml">glColorMask</a> and a fullscreen quad.</p>
 <h2 id="shadows">Shadows</h2>
-<p>Shadows in real-time graphics <a href="https://www.nvidia.com/object/doc_shadows.html">can be tricky</a>. The dominant technique is <a href="https://en.wikipedia.org/wiki/Shadow_mapping">shadow mapping</a> followed by Doom 3's <a href="https://en.wikipedia.org/wiki/Shadow_volume">stencil shadow volumes</a>. </p>
-<p>For this project, I had to consider which shadow rendering method could combine with pre-rendered backgrounds. I had no insight into how this could work with shadow volumes. With shadow mapping, one may be able to pre-render the <a href="https://en.wikipedia.org/wiki/Shadow_mapping#/media/File:2shadowmap.png">shadow map</a> of the detailed scenery from the perspective of each light.
-But, these depth maps must also be combined with the real-time objects in a similar way to the backgrounds. Since they could be rendered in high resolution and detail, this may provide a boost to shadow quality that is not possible in real-time. 
-(As far as I know, this could not have been done in the old games, and I encourage anyone interested in this idea to explore it.)</p>
+<p>Shadows in real-time graphics <a href="https://www.nvidia.com/object/doc_shadows.html">can be tricky</a>. The dominant technique is <a href="https://en.wikipedia.org/wiki/Shadow_mapping">shadow mapping</a> followed by Doom 3's <a href="https://en.wikipedia.org/wiki/Shadow_volume">stencil shadow volumes</a>.</p>
+<p>For this project, I had to consider which shadow rendering method could combine with pre-rendered backgrounds. I had no insight into how this could work with shadow volumes. With shadow mapping, one may be able to pre-render the <a href="https://en.wikipedia.org/wiki/Shadow_mapping#/media/File:2shadowmap.png">shadow map</a> of the detailed scenery from the perspective of each light. But, these depth maps must also be combined with the real-time objects in a similar way to the backgrounds. Since they could be rendered in high resolution and detail, this may provide a boost to shadow quality that is not possible in real-time. (As far as I know, this could not have been done in the old games, and I encourage anyone interested in this idea to explore it.)</p>
 <p>I have been through the pains of writing shadow mapping and volumes in the past, so for this project, I wanted to use simple <a href="https://www.opengl.org/archives/resources/code/samples/mjktips/TexShadowReflectLight.html">planar projection</a> instead. This involves flattening the model onto a plane with a transformation matrix and then filling it in with a dark color. Planar projection works well for showing a simple shadow underneath a character but has a lot of limitations. The most glaring issue is that shadows cannot be cast on other scene objects. If you walk in front of a wall or obstacle, the shadow will leak on the other side. At least these limitations are no worse with pre-rendered backgrounds than in a real-time scene.</p>
 <p>A simple improvement I made was to have the character cast two shadows instead of one. In each scene, one light is designated as the primary source and another as the secondary. The primary light casts a dark shadow while the secondary light casts a lighter one. This avoids some of the harsh looks that are typical of planar projection and makes the shadows look more lively.</p>
-<p><strong>Primary & Secondary Shadows</strong></p>
+<p><strong>Primary &amp; Secondary Shadows</strong></p>
 <p><img src="img/shadows.jpg" alt="shadows diagram" /></p>
 <h2 id="reflections">Reflections</h2>
 <p>If you look closely at the Astronaut's helmet and vest you will notice that it reflects the surrounding scene. Following the principle of connecting the background to the game, I thought this was an essential effect for grounding the character in the scene. It also helps give the material of the visor an authentic look.</p>
-<p>The reflections are done by rendering a <a href="https://learnopengl.com/Advanced-OpenGL/Cubemaps">cubemap</a> that accompanies each background. I wrote a script for Blender which would orient the camera in all 6 directions and capture an image at each. The reflective surfaces sample the cubemap to obtain reflections. </p>
+<p>The reflections are done by rendering a <a href="https://learnopengl.com/Advanced-OpenGL/Cubemaps">cubemap</a> that accompanies each background. I wrote a script for Blender which would orient the camera in all 6 directions and capture an image at each. The reflective surfaces sample the cubemap to obtain reflections.</p>
 <p><strong>Cubemap</strong></p>
 <p><img src="img/cubemap.jpg" alt="reflection cubemap" /></p>
 <p>The cubemaps don't need to be very high resolution to give a nice looking effect. Even a 32x3 faces can make a big difference, and the performance cost in the shader is almost negligible.</p>
 <p>Here is the reflection code, which is fairly standard. The camera direction is simply reflected along the surface normal. This resulting vector is used to lookup a color in the cubemap.</p>
-<pre><code class="GLSL language-GLSL">vec3 viewDir = normalize(v_fragPosition - u_camPosition);
+<pre><code>vec3 viewDir = normalize(v_fragPosition - u_camPosition);
 
 vec3 envVec = reflect(viewDir, normal);
 vec3 envColor = texture(u_envMap, vec3(envVec.x, -envVec.y, envVec.z)).rgb;
@@ -183,29 +282,31 @@ with items dropped by enemies.&lt;NOD&lt;END
 </code></pre>
 <p>I had some questions about how TSC is interpreted so I contacted a Cave Story expert. This is probably more info than most readers care about, but it tells how rudimentary the scripts are. I decided include it for those who are interested.</p>
 <blockquote>
-  <p>"At any given time there's actually only one script buffer which stores the "Active script", in plaintext. Normally, that would be the contents of Head.tsc with the current stage's script appended to the end of it. However, when you bring up the item menu, it actually replaces the contents of that buffer by loading ArmsItem.tsc - and likewise, it loads the head and stage scripts again when the menu is closed. Other than this, there's also a limiting factor in that the size of the script buffer is allocated on startup so if a script is too large the game will crash.</p>
-  <p>When the game goes to run an event, it scans through the script from start to end looking for the event number. If it finds something that it thinks is an event number and is larger than what it's searching for, it stops immediately and assumes that the event couldn't be found. Thus, putting large event #s in head.tsc can lead to some unexpected behaviour." - Noxid</p>
+<p>"At any given time there's actually only one script buffer which stores the "Active script", in plaintext. Normally, that would be the contents of Head.tsc with the current stage's script appended to the end of it. However, when you bring up the item menu, it actually replaces the contents of that buffer by loading ArmsItem.tsc - and likewise, it loads the head and stage scripts again when the menu is closed. Other than this, there's also a limiting factor in that the size of the script buffer is allocated on startup so if a script is too large the game will crash.</p>
+</blockquote>
+<blockquote>
+<p>When the game goes to run an event, it scans through the script from start to end looking for the event number. If it finds something that it thinks is an event number and is larger than what it's searching for, it stops immediately and assumes that the event couldn't be found. Thus, putting large event #s in head.tsc can lead to some unexpected behaviour." - Noxid</p>
 </blockquote>
 <p>Here is a sample of my inspired language. I made my syntax a bit more flexible and robust while retaining the simple goto control flow.</p>
 <pre><code>#bathroom
-    AMB "SOUND_TUNNEL"
+    AMB &quot;SOUND_TUNNEL&quot;
     END
 
 #hallway
-    AMB "SOUND_GENERATOR"
+    AMB &quot;SOUND_GENERATOR&quot;
     END
 
 #bedroom
-    AMB "SOUND_TUNNEL"
+    AMB &quot;SOUND_TUNNEL&quot;
     END
 
 #elevButton
-    SND "SOUND_BEEP"
+    SND &quot;SOUND_BEEP&quot;
     CTL 0
-    PATH "exit_waypoint"
+    PATH &quot;exit_waypoint&quot;
     WPATH
     CTL 1
-    SND "SOUND_BEEP"
+    SND &quot;SOUND_BEEP&quot;
     END
 </code></pre>
 <p>This was my first time designing an interpreted language, and unfortunately I made a few mistakes. A major one was the lack of ability to maintain the state of the machine when calling into C code. For example, if script A triggers a game event which starts script B, then B takes control of the program counter and does not continue with A's sequence of events. My script language would need to be redesigned before it was usable. Maybe next time I'll try something like Forth.</p>
@@ -219,7 +320,7 @@ with items dropped by enemies.&lt;NOD&lt;END
 <p><img src="img/level_mockup.jpg" alt="level mockup" /></p>
 <h2 id="character">Character</h2>
 <p>Since most of the graphics budget could be allocated for the characters, we could put a lot more detail into them than is conventional. Since this was a tablet game, we budgeted 4-5k triangles for each character, along with sophisticated materials with 2048x2048 textures. Even at that conservative resolution, each individual triangle only occupies a few pixels on the screen, so there isn't much sense in taking it further, even though most hardware could handle it.</p>
-<p>Hunter created the base model by modeling one side of the astronaut first and then mirroring it across the middle axis. I suggested this technique to Hunter in order to maximize texture usage. However, we found out later that this completely breaks normal maps. We fixed this by separating the UV maps after mirroring, so that none of the pieces overlaped. The mirroring method can still save time for modeling and UV mapping. </p>
+<p>Hunter created the base model by modeling one side of the astronaut first and then mirroring it across the middle axis. I suggested this technique to Hunter in order to maximize texture usage. However, we found out later that this completely breaks normal maps. We fixed this by separating the UV maps after mirroring, so that none of the pieces overlaped. The mirroring method can still save time for modeling and UV mapping.</p>
 <p><strong>UV Mapping</strong></p>
 <p><img src="img/before_mirror.jpg" alt="astronaut before mirror" /></p>
 <p>After mirroring, Hunter added a few asymmetric pieces, such as the hose connecting his backpack and vest.</p>
@@ -227,7 +328,7 @@ with items dropped by enemies.&lt;NOD&lt;END
 <p><strong>High-res sculpt</strong></p>
 <p><img src="img/high_resolution.jpg" alt="astronaught high resolution" /></p>
 <p>This is a standard technique for generating normal maps. The normals from the high-res mesh are baked on to the low-res surface. You can learn more about how to use this technique from <a href="http://www.paultosca.com/makingofvarga.html">Making of Varga</a>.</p>
-<p>To finish off the material we created a specular map, which controls the color and intensity of specular reflections, and a gloss map, which controls how shiny each surface appears. The normal map makes the most significant difference overall, but the other maps are important for making each part of the model look like <a href="http://www.manufato.com/?p=902">its intended material</a>. </p>
+<p>To finish off the material we created a specular map, which controls the color and intensity of specular reflections, and a gloss map, which controls how shiny each surface appears. The normal map makes the most significant difference overall, but the other maps are important for making each part of the model look like <a href="http://www.manufato.com/?p=902">its intended material</a>.</p>
 <p>This material model was popular for PS3 and Xbox-360 games but has since been replaced by <a href="https://marmoset.co/posts/physically-based-rendering-and-you-can-too/">physically based rendering</a> which has a lot of production advantages along with being more correct.</p>
 <p><strong>All 4 astronaut texture maps</strong></p>
 <p><img src="img/texture_maps.jpg" alt="astronaught texture maps" /></p>
@@ -248,21 +349,20 @@ with items dropped by enemies.&lt;NOD&lt;END
 <li>Create a rig.</li>
 <li>Bind mesh to the rig and paint weights.</li>
 </ol>
-<p>As you can imagine, this takes quite a bit of time, and since it was Hunter's first time, there was a lot of learning along the way and parts he wishes he could go back and change. </p>
-<h2 id="thefuture">The Future</h2>
-<p>Since pre-rendered backgrounds are no longer popular, there are not many resources to learn from. 
-We hope that this article will rejuvenate some interest in the subject and help other game developers work with them in the future.</p>
+<p>As you can imagine, this takes quite a bit of time, and since it was Hunter's first time, there was a lot of learning along the way and parts he wishes he could go back and change.</p>
+<h2 id="the-future">The Future</h2>
+<p>Since pre-rendered backgrounds are no longer popular, there are not many resources to learn from. We hope that this article will rejuvenate some interest in the subject and help other game developers work with them in the future.</p>
 <p>Hunter and I have moved on to other projects, but we are still interested in the game concept and the technology and are excited to hear others' ideas.</p>
 <p>The <a href="https://github.com/justinmeiners/pre-rendered-backgrounds">source code</a> for the engine is GPL and is fully capable of being used in other games of different genres. Contact us if you are interested in an alternative license.</p>
-<h3 id="bonuscomicbookconcept">Bonus: Comic Book Concept</h3>
+<h3 id="bonus-comic-book-concept">Bonus: Comic Book Concept</h3>
 <p>Towards the end of the project, I was messing around with some toon style shading and came up with this render:</p>
 <p><strong>Toon Shading</strong></p>
 <p><img src="img/toon_astronaut.gif" alt="toon astronaut" /></p>
-<p>That looked like a more exciting direction to take the art. The end goal of hyper-detailed rendering would be grungey realism. But, what if we turned that around and used pre-rendered backgrounds to make something unrealistic? What if the entire game looked like a comic book, including dialog bubbles and panels?  </p>
+<p>That looked like a more exciting direction to take the art. The end goal of hyper-detailed rendering would be grungey realism. But, what if we turned that around and used pre-rendered backgrounds to make something unrealistic? What if the entire game looked like a comic book, including dialog bubbles and panels?</p>
 <p>You could even model the levels with simple shapes to define the perspective and depth, and then hand paint the scenery on top!</p>
 <p><strong>Aliens comic</strong></p>
 <p><img src="img/aliens_comic.jpg" alt="aliens comic" /></p>
-<h2 id="additionalreferences">Additional References</h2>
+<h2 id="additional-references">Additional References</h2>
 <ul>
 <li><p><a href="http://www.amaanakram.com/lightingT/part1.htm">3D Lighting Tutorial</a></p></li>
 <li><p><a href="http://androidarts.com/art_tut.htm">Art Tutorial</a></p></li>
@@ -273,5 +373,6 @@ We hope that this article will rejuvenate some interest in the subject and help 
 <li><p><a href="https://github.com/nothings/stb">STB Single Header Libraries</a></p></li>
 <li><p><a href="https://www.gamasutra.com/view/feature/131815/the_cabal_valves_design_process_.php">The Cabal: Valve's Design Process for Creating Half-Life</a></p></li>
 <li><p><a href="http://polycount.com/discussion/104415/zelda-wind-waker-tech-and-texture-analysis-picture-heavy">Zelda: Wind Waker Tech and Texture Analysis</a></p></li>
-</ul></body>
+</ul>
+</body>
 </html>
