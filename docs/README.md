@@ -25,8 +25,6 @@ But we learned a lot.
 This article is about our project (the source is available on [GitHub](https://github.com/justinmeiners/pre-rendered-backgrounds).
 
 
-## Contents
-
 1. [History](#history)
 2. [Prototype](#prototype)
 3. [Engine](#engine)

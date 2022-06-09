@@ -319,8 +319,6 @@ This is mostly due to how long it took for us to create artwork, even at placeho
 But we learned a lot.
 This article is about our project (the source is available on <a href="https://github.com/justinmeiners/pre-rendered-backgrounds">GitHub</a>.</p>
 
-<h2>Contents</h2>
-
 <ol>
 <li><a href="#history">History</a></li>
 <li><a href="#prototype">Prototype</a></li>
@@ -339,11 +337,11 @@ This article is about our project (the source is available on <a href="https://g
 
 <h2>History</h2>
 
-<p>Pre-rendered backgrounds became popular in the mid-1990s on the Playstation 1, and to a lesser extent, the Nintendo 64.
-Since 3D rendering was new and underpower, many developers felt limited in the kinds of experiences they could create.
+<p>Pre-rendered backgrounds became popular in the mid-1990s on the PlayStation 1, and to a lesser extent, the Nintendo 64.
+Since 3D rendering was new and under-powered, many developers felt limited in the kinds of experiences they could create.
 In particular, creating cinematic experiences with compelling characters was a bit out of the question.
 Pre-rendered backgrounds allowed artists to add a lot more detail, particularly in lighting and materials.
-They could take hours to rener a single frame, using sophisticated rendering software, usually reserved for films.
+They could take hours to render a single frame, using sophisticated rendering software, usually reserved for films.
 This also freed the hardware to focus entirely on the characters and the few other objects in the scene.</p>
 
 <p>It&rsquo;s important to note that this idea isn&rsquo;t entirely new.
@@ -352,7 +350,7 @@ Creating detailed artwork is time consuming.
 For a film, it&rsquo;s too much for artists to redraw an entire scene for every frame of a film (about 86,400 per hour).
 Instead, animators paint a detailed backdrop to be used for a longer window of time and only redraw the characters and moving objects on top.</p>
 
-<p>Even though the motivation is similar,  film and games differ quite a bit in their methodolgy for applying this idea,
+<p>Even though the motivation is similar,  film and games differ quite a bit in their methodology for applying this idea,
 as we will discuss later on.</p>
 
 <p>Here are a few examples of classic video games that used the pre-rendered background technique.</p>
@@ -370,8 +368,8 @@ You can also learn more about the engine and technology <a href="http://q-gears.
 
 <h4>Resident Evil</h4>
 
-<p>Resident Evil not only used this techinque to create better graphics,
-they also embraced its limitations to complemenet their gameplay.
+<p>Resident Evil not only used this technique to create better graphics,
+they also embraced its limitations to complement their gameplay.
 For example, the fixed camera angles gave the designers full control of the players view
 allowing them to craft some cinematic and <a href="https://youtu.be/N92RAQ3mvMA?t=3138">scary scenes</a>.</p>
 
@@ -392,7 +390,7 @@ allowing them to craft some cinematic and <a href="https://youtu.be/N92RAQ3mvMA?
 <p>You might not remember Zelda using pre-rendered backgrounds.
 It&rsquo;s only used in a <a href="http://wiki.spinout182.com/w/Zelda_64:_JFIF_Backgrounds">few scenes</a>, such as inside Link&rsquo;s house and outside the Temple of Time.
 Unlike the other games, it is not clear to me why this technique was included at all.
-erhaps it allowed them to create impressive looking vistas, but this didn&rsquo;t seem to be a limitation outside of <a href="https://youtu.be/wfmu0Lln4MU?t=19">Ganon&rsquo;s castle</a>.
+perhaps it allowed them to create impressive looking vistas, but this didn&rsquo;t seem to be a limitation outside of <a href="https://youtu.be/wfmu0Lln4MU?t=19">Ganon&rsquo;s castle</a>.
 Another possibility is it allowed the team to create these scenes faster.</p>
 
 <p><strong>Temple of Time</strong></p>
@@ -414,7 +412,7 @@ I really like the original Alien movie and thought similar themes would fit into
 
 <p><img src="img/alien_concept.jpg" alt="alien concept" /></p>
 
-<p>The screenshots below show the final demo. The astronaut walks anywhere you click on the floor. He can also interact with objects, such as switches, by clicking on them (they are invisible for testing purposes). As the astronaut moves offscreen, the camera swaps to another view to follow him. The demo has only one scene: the characters&rsquo;s sleeping quarters, and 3 small rooms in this area.</p>
+<p>The screenshots below show the final demo. The astronaut walks anywhere you click on the floor. He can also interact with objects, such as switches, by clicking on them (they are invisible for testing purposes). As the astronaut moves offscreen, the camera swaps to another view to follow him. The demo has only one scene: the character&rsquo;s sleeping quarters, and 3 small rooms in this area.</p>
 
 <p><img src="img/screenshot1.jpg" alt="screenshot1" /></p>
 
@@ -423,7 +421,7 @@ I really like the original Alien movie and thought similar themes would fit into
 <p>Even though its a small amount of content, it represents a lot of design work and demonstrates that the project works.</p>
 
 <p>Whenever you design a new system or way of doing things, there are a million micro-questions that need to be answered to make all the parts fit together.
-Furthmore, they need to be answered in a way that creates a coherent work and follows a style.
+Furthermore, they need to be answered in a way that creates a coherent work and follows a style.
 The standard way to approach this design challenge for a video game is by creating a &ldquo;vertical slice&rdquo; of the game.
 This is a short playable demo that represents what 4-5 minutes of the game will look like,
 at the quality you expect ship.
@@ -441,7 +439,7 @@ Creating such a demo forces you to answer all the critical artistic and technica
 
 
 <p>With a good vertical slice, the rest of the game can then be developed fairly easily.
-You know everything workds.
+You know everything works.
 The content and methods can be scaled out &ldquo;horizontally&rdquo;, by applying the lessons learned
 and following the established style over and over again.</p>
 
@@ -705,7 +703,7 @@ with items dropped by enemies.&lt;NOD&lt;END
 
 <p>Since most of the graphics budget could be allocated for the characters, we could put a lot more detail into them than is conventional. Since this was a tablet game, we budgeted 4-5k triangles for each character, along with sophisticated materials with 2048x2048 textures. Even at that conservative resolution, each individual triangle only occupies a few pixels on the screen, so there isn&rsquo;t much sense in taking it further, even though most hardware could handle it.</p>
 
-<p>Hunter created the base model by modeling one side of the astronaut first and then mirroring it across the middle axis. I suggested this technique to Hunter in order to maximize texture usage. However, we found out later that this completely breaks normal maps. We fixed this by separating the UV maps after mirroring, so that none of the pieces overlaped. The mirroring method can still save time for modeling and UV mapping.</p>
+<p>Hunter created the base model by modeling one side of the astronaut first and then mirroring it across the middle axis. I suggested this technique to Hunter in order to maximize texture usage. However, we found out later that this completely breaks normal maps. We fixed this by separating the UV maps after mirroring, so that none of the pieces overlapped. The mirroring method can still save time for modeling and UV mapping.</p>
 
 <p><strong>UV Mapping</strong></p>
 
@@ -717,7 +715,7 @@ with items dropped by enemies.&lt;NOD&lt;END
 
 <p><strong>High-res sculpt</strong></p>
 
-<p><img src="img/high_resolution.jpg" alt="astronaught high resolution" /></p>
+<p><img src="img/high_resolution.jpg" alt="astronaut high resolution" /></p>
 
 <p>This is a standard technique for generating normal maps. The normals from the high-res mesh are baked on to the low-res surface. You can learn more about how to use this technique from <a href="http://www.paultosca.com/makingofvarga.html">Making of Varga</a>.</p>
 
@@ -727,13 +725,13 @@ with items dropped by enemies.&lt;NOD&lt;END
 
 <p><strong>All 4 astronaut texture maps</strong></p>
 
-<p><img src="img/texture_maps.jpg" alt="astronaught texture maps" /></p>
+<p><img src="img/texture_maps.jpg" alt="astronaut texture maps" /></p>
 
 <p>The last step before animating the character is creating a skeleton. This is fun, except the tedious part of assigning vertices to each bone. A nice touch Hunter added is a bone to bend the backpack tube.</p>
 
 <p><strong>Astronaut rig</strong></p>
 
-<p><img src="img/skeleton_rig.jpg" alt="astronaught skeleton rig" /></p>
+<p><img src="img/skeleton_rig.jpg" alt="astronaut skeleton rig" /></p>
 
 <p>To summarize, to get just one character ready for animation, we had to:</p>
 
@@ -742,7 +740,7 @@ with items dropped by enemies.&lt;NOD&lt;END
 <li>Create a low-res model.</li>
 <li>UV unwrap the low-res model.</li>
 <li>Generate a high-res model.</li>
-<li>Sculp the high-res model.</li>
+<li>Sculpt the high-res model.</li>
 <li>Bake normal maps.</li>
 <li>Paint texture map.</li>
 <li>Paint specular map.</li>
