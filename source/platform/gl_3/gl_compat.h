@@ -30,8 +30,7 @@
 
 #else
 
-#include <OpenGL/gl3.h>
-#include <OpenGL/gl3ext.h>
+#include "gl.h"
 
 #endif
 

@@ -1,5 +1,6 @@
 
 #include "gui_label.h"
+#include <string.h>
 
 void GuiLabel_Init(GuiLabel* label)
 {

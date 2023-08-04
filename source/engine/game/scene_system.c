@@ -1,5 +1,6 @@
 
 #include <stdlib.h>
+#include <string.h>
 #include "scene_system.h"
 #include "json_utils.h"
 #include "engine.h"

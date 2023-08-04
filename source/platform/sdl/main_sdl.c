@@ -1,26 +1,30 @@
-
-
-#include <stdio.h>
-#include <OpenGL/gl3.h>
-
 #include "SDL2/SDL.h"
 #include "gl_3.h"
-#include "snd_driver_core_audio.h"
+#include <stdio.h>
 #include "utils.h"
+
+#if __APPLE__
+#include <OpenGL/gl3.h>
+#include "snd_driver_core_audio.h"
+#else
+#define GLAD_GL_IMPLEMENTATION
+#include "gl.h"
+#endif // __APPLE__
+
 
 #define BUILD_DEBUG 1
 
 int g_windowWidth = 1024;
 int g_windowHeight = 768;
 
-int main(int argc, const char * argv[])
+int main(int argc, char * argv[])
 {
     if (SDL_Init(SDL_INIT_VIDEO) == -1)
     {
         printf("failed to init SDL\n");
         return 1;
     }
-    
+
     SDL_GL_SetAttribute(SDL_GL_CONTEXT_MAJOR_VERSION, 3);
     SDL_GL_SetAttribute(SDL_GL_CONTEXT_MINOR_VERSION, 3);
     SDL_GL_SetAttribute(SDL_GL_CONTEXT_FLAGS, SDL_GL_CONTEXT_FORWARD_COMPATIBLE_FLAG);
@@ -53,18 +57,29 @@ int main(int argc, const char * argv[])
         printf("failed to create window and context\n");
         return 1;
     }
+	
+#if ! __APPLE__
+	if ( ! gladLoadGL((GLADloadfunc)SDL_GL_GetProcAddress) )
+	{
+		printf("failed to init glad\n");
+		return 1;
+	}
+#endif // __APPLE__
     
     SDL_GL_SetSwapInterval(1);
-    
+
     glViewport(0, 0, g_windowWidth, g_windowHeight);
 
     Filepath_SetDataPath("data/");
     
     
     Renderer gl;
-    Gl2_Init(&gl);
-    
+    Gl2_Init(&gl); 
+#if __APPLE__
     SndDriver* driver = SndDriver_CoreAudio_Create(44100);
+#else
+    SndDriver* driver = NULL;
+#endif // __APPLE__
     
     EngineSettings engineSettings;
     engineSettings.inputConfig = kInputConfigMouseKeyboard;
@@ -73,7 +88,7 @@ int main(int argc, const char * argv[])
     engineSettings.renderWidth = g_windowWidth;
     engineSettings.renderHeight = g_windowHeight;
     engineSettings.renderScaleFactor = 1.0f;
-    
+
     if (!Engine_Init(&g_engine, &gl, driver,engineSettings))
     {
         return 2;
@@ -124,6 +139,10 @@ int main(int argc, const char * argv[])
     }
     
     SDL_GL_DeleteContext(context);
+	
+#if ! __APPLE__
+	gladLoaderUnloadGL();
+#endif // __APPLE__
     
     return 0;
 }

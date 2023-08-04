@@ -3,6 +3,8 @@
 #include "stretchy_buffer.h"
 #include <assert.h>
 #include <limits.h>
+#include <string.h>
+#include <stdint.h>
 #include "utils.h"
 
 

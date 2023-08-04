@@ -1,7 +1,7 @@
 
 #include "render_system.h"
 #include "utils.h"
-#include "Engine.h"
+#include "engine.h"
 
 int RenderSystem_Init(RenderSystem* system,
                       struct Engine* engine,

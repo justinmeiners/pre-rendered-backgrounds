@@ -1,6 +1,7 @@
 
 
 #include "skel.h"
+#include <string.h>
 #include <assert.h>
 #include "utils.h"
 

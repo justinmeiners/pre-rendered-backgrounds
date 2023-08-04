@@ -1,6 +1,7 @@
 
 #include "actor.h"
 #include "engine.h"
+#include <string.h>
 
 int ActorTypeEntry_Compare(const void* a, const void* b)
 {

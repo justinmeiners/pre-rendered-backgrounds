@@ -1,5 +1,6 @@
 
 #include "skel_anim.h"
+#include <string.h>
 #include <assert.h>
 #include "utils.h"
 

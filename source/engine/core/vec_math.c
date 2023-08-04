@@ -1,7 +1,9 @@
 
 #include "vec_math.h"
+#if __APPLE__
 #include <Accelerate/Accelerate.h>
 #define APPLE_ACCELERATE 1
+#endif // __APPLE__
 
 
 Mat4 Mat4_CreateIdentity()
