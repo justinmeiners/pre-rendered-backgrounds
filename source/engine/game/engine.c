@@ -1,6 +1,7 @@
 
 #include "engine.h"
 #include <time.h>
+#include <string.h>
 
 Engine g_engine;
 
@@ -13,9 +14,13 @@ int Engine_Init(Engine* engine,
                 SndDriver* sndDriver,
                 EngineSettings engineSettings)
 {
+#if __APPLE__
     if (!renderer || !sndDriver)
         return 0;
-
+#else
+	if (!renderer)
+        return 0;
+#endif // __APPLE__
     SndSystem_Init(&engine->soundSystem, sndDriver);
     NavSystem_Init(&engine->navSystem);
     PartSystem_Init(&engine->partSystem);
@@ -23,7 +28,6 @@ int Engine_Init(Engine* engine,
     GuiSystem_Init(&engine->guiSystem, engineSettings.guiWidth, engineSettings.guiHeight);
     InputSystem_Init(&engine->inputSystem, engineSettings.inputConfig);
     RenderSystem_Init(&engine->renderSystem, engine, renderer, engineSettings.renderWidth, engineSettings.renderHeight);
-    
     engine->renderSystem.scaleFactor = engineSettings.renderScaleFactor;
     engine->renderSystem.renderer->flushLoad(engine->renderSystem.renderer);
     

@@ -504,10 +504,10 @@ static int Gl_CheckCompatibility(Renderer* gl, RendererLimits* limits)
     printf("version: %s\n", glGetString(GL_VERSION));
 
     const char* extensions = (const char*)glGetString(GL_EXTENSIONS);
-    printf("%s\n", extensions);
     
     if (extensions)
     {
+        printf("%s\n", extensions);
         if (Gl_CheckExtension(gl, "OES_vertex_array_object", extensions))
         {
             printf("missing OES_vertex_array_object\n");
@@ -521,7 +521,15 @@ static int Gl_CheckCompatibility(Renderer* gl, RendererLimits* limits)
     
     
     GLint components = 0;
+#if __APPLE__
     glGetIntegerv(GL_MAX_VERTEX_UNIFORM_VECTORS, &components);
+#else
+	// from https://registry.khronos.org/OpenGL-Refpages/gl4/html/glGet.xhtml
+	// The value of GL_MAX_VERTEX_UNIFORM_VECTORS
+	// is equal to the value of GL_MAX_VERTEX_UNIFORM_COMPONENTS
+	// and must be at least 256.
+	glGetIntegerv(GL_MAX_VERTEX_UNIFORM_COMPONENTS, &components);
+#endif // __APPLE__
     printf("vertex uniform components: %i\n", components);
     
     limits->maxSkelJoints = components / 4;

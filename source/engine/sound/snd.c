@@ -3,13 +3,17 @@
 #include "utils.h"
 
 #include <string.h>
-#include <assert.h>
 #include <stdint.h>
+#include <assert.h>
 #include <limits.h>
 
 
 #if SND_OGG_VORBIS
 extern int Snd_FromOGG(Snd* snd, FILE* file);
+#endif
+
+#if ! __APPLE__
+typedef unsigned int uint;
 #endif
 
 

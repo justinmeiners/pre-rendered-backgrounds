@@ -2,6 +2,7 @@
 #include "nav_mesh.h"
 #include <stdlib.h>
 #include "utils.h"
+#include <string.h>
 #include <assert.h>
 
 
